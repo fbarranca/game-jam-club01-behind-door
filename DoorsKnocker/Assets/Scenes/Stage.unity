@@ -482,6 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doors: []
+  startRoom: {fileID: 74103178}
 --- !u!1 &1697711051
 GameObject:
   m_ObjectHideFlags: 0
