@@ -8,7 +8,6 @@ public class Door : MonoBehaviour, IPointerClickHandler
 {
     public GameObject targetSpot;
 
-    // Start is called before the first frame update
     void Start()
     {
         Vector3 randomPosition = GenerateRandomPosition();
@@ -20,17 +19,31 @@ public class Door : MonoBehaviour, IPointerClickHandler
     // Called when a pointer click is detected on the door
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Check if the click occurred on the door
+        Vector2 clickPosition = Camera.main.ScreenToWorldPoint(eventData.position);
+        Vector2 targetPosition = targetSpot.transform.position;
+        float distance = Vector2.Distance(clickPosition, targetPosition);
+
+        if (distance < 1.0f) // Adjust the threshold value as needed
+        {
+            Debug.Log("You're very close to the target spot!");
+        }
+        else if (distance < 2.0f) // Adjust the threshold value as needed
+        {
+            Debug.Log("You're close to the target spot.");
+        }
+        else
+        {
+            Debug.Log("You're far from the target spot.");
+        }
+
         if (eventData.pointerPress == targetSpot)
         {
-            // Door clicked, reveal target spot
             targetSpot.GetComponent<TargetSpot>().DeactivateDoor();
         }
 
     }
     Vector3 GenerateRandomPosition()
     {
-        //Vector3 doorSize = transform.localScale;
         Vector3 doorSize = GetComponent<BoxCollider2D>().size;
         // Get the bounds of the target spot area
         Bounds doorBounds = new Bounds(transform.position, doorSize);
