@@ -42,7 +42,7 @@ public class Door : MonoBehaviour, IPointerClickHandler
         }
 
     }
-    Vector3 GenerateRandomPosition()
+    public Vector3 GenerateRandomPosition()
     {
         Vector3 doorSize = GetComponent<BoxCollider2D>().size;
         // Get the bounds of the target spot area
@@ -54,5 +54,10 @@ public class Door : MonoBehaviour, IPointerClickHandler
 
         // Return the random position
         return new Vector3(randomX, randomY, transform.position.z);
+    }
+
+    public void MoveTargetSpotToRandomPosition()
+    {
+        targetSpot.GetComponent<TargetSpot>().MoveToPosition(GenerateRandomPosition());
     }
 }

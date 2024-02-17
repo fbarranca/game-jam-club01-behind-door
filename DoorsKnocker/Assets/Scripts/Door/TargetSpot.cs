@@ -19,4 +19,9 @@ public class TargetSpot : MonoBehaviour, IPointerClickHandler
     {
         DeactivateDoor();
     }
+
+    public void MoveToPosition(Vector3 position)
+    {
+        transform.position = position;
+    }
 }

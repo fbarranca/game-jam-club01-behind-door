@@ -42,7 +42,7 @@ public class CameraController : MonoBehaviour
 
         float cameraZIndex = mainCamera.transform.localPosition.z;
 
-        while (Vector2.Distance(new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y), new Vector2(targetPosition.x, targetPosition.y)) > 0.1f)
+        while (Vector2.Distance(mainCamera.transform.position, targetPosition) > 0.1f)
         {
             Vector3 newPosition = Vector3.Lerp(mainCamera.transform.position, new Vector3(targetPosition.x, targetPosition.y, mainCamera.transform.position.z), Time.deltaTime * transitionSpeed);
             newPosition.z = cameraZIndex; // Keep the z position unchanged
