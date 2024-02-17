@@ -23,11 +23,11 @@ public class InputController : MonoBehaviour
     void Update()
     {
         // Check for player input
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !CameraController.instance.IsTransitioning)
+        if (Input.GetAxisRaw("Horizontal") < 0 && !CameraController.instance.IsTransitioning)
         {
             CameraController.instance.MoveCameraTo(RoomController.instance.MoveToLeftRoom());
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && !CameraController.instance.IsTransitioning)
+        else if (Input.GetAxisRaw("Horizontal") > 0 && !CameraController.instance.IsTransitioning)
         {
             CameraController.instance.MoveCameraTo(RoomController.instance.MoveToRightRoom());
         }
