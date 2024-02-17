@@ -10,7 +10,7 @@ public class RoomBuilder : MonoBehaviour
     public GameObject[] doorPrefabs;
 
 
-    void Start()
+    void Awake()
     {
         InstantiateDoors();
     }

@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 1121005164}
   - component: {fileID: 1121005163}
   - component: {fileID: 1121005162}
+  - component: {fileID: 1121005165}
   m_Layer: 0
   m_Name: Controllers
   m_TagString: Untagged
@@ -467,6 +468,20 @@ MonoBehaviour:
   - {fileID: 74103178}
   - {fileID: 276873807}
   - {fileID: 389158919}
+  - {fileID: 971311384}
+--- !u!114 &1121005165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121005156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd20265f447ec74cba51f9a28c93cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doors: []
 --- !u!1 &1697711051
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +580,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPositions:
-  - {fileID: 0}
   - {fileID: 276873807}
   - {fileID: 389158919}
   - {fileID: 971311384}
