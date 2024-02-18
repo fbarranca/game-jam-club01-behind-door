@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ScoreController.ResetScore();
         doors = FindObjectsOfType<Door>();
         timer.onTimerEnd.AddListener(EndGame);
     }
