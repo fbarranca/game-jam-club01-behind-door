@@ -8,6 +8,12 @@ public class Door : MonoBehaviour, IPointerClickHandler
 {
     public GameObject targetSpot;
     public Animator animator;
+    public Animator knock;
+
+    // Define animation triggers
+    public string strongTrigger = "StrongKnock";
+    public string midTrigger = "MidKnock";
+    public string farTrigger = "WeakKnock";
 
     void Start()
     {
@@ -26,14 +32,20 @@ public class Door : MonoBehaviour, IPointerClickHandler
 
         if (distance < 1.0f) // Adjust the threshold value as needed
         {
+            GetHintAnimation(clickPosition);
+            knock.SetTrigger(strongTrigger);
             Debug.Log("You're very close to the target spot!");
         }
         else if (distance < 2.0f) // Adjust the threshold value as needed
         {
+            GetHintAnimation(clickPosition);
+            knock.SetTrigger(midTrigger);
             Debug.Log("You're close to the target spot.");
         }
         else
         {
+            GetHintAnimation(clickPosition);
+            knock.SetTrigger(farTrigger);
             Debug.Log("You're far from the target spot.");
         }
 
@@ -44,6 +56,12 @@ public class Door : MonoBehaviour, IPointerClickHandler
         }
 
     }
+
+    private void GetHintAnimation(Vector2 clickPosition)
+    {
+        knock.transform.position = clickPosition;
+    }
+
     public Vector3 GenerateRandomPosition()
     {
         Vector3 doorSize = GetComponent<BoxCollider2D>().size;
