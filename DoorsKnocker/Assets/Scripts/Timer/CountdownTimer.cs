@@ -33,7 +33,7 @@ public class CountdownTimer : MonoBehaviour
         yield return new WaitForSeconds(countdownDuration);
 
         // "Go!"
-        countdownText.text = "Go!";
+        countdownText.text = "GO!";
         yield return new WaitForSeconds(countdownDuration);
 
         // Hide the countdown text
