@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class Door : MonoBehaviour, IPointerClickHandler
 {
     public GameObject targetSpot;
+    public Animator animator;
 
     void Start()
     {
@@ -38,7 +39,8 @@ public class Door : MonoBehaviour, IPointerClickHandler
 
         if (eventData.pointerPress == targetSpot)
         {
-            targetSpot.GetComponent<TargetSpot>().DeactivateDoor();
+            
+            targetSpot.GetComponent<TargetSpot>().DeactivateDoor();            
         }
 
     }
@@ -59,5 +61,15 @@ public class Door : MonoBehaviour, IPointerClickHandler
     public void MoveTargetSpotToRandomPosition()
     {
         targetSpot.GetComponent<TargetSpot>().MoveToPosition(GenerateRandomPosition());
+    }
+
+    public void DeactivateDoor()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void BreakAnimation()
+    {
+        animator.SetTrigger("Break");
     }
 }

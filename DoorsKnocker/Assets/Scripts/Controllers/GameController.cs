@@ -56,6 +56,8 @@ public class GameController : MonoBehaviour
         foreach (Door door in doors)
         {
             door.gameObject.SetActive(true);
+            door.animator.ResetTrigger("Break");
+            door.animator.ResetTrigger("Idle");
             door.targetSpot.SetActive(true);
             door.MoveTargetSpotToRandomPosition();
         }

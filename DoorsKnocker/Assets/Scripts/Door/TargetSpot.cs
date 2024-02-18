@@ -10,14 +10,15 @@ public class TargetSpot : MonoBehaviour, IPointerClickHandler
     public void DeactivateDoor()
     {
         gameObject.SetActive(false);
-        door.SetActive(false);
+        //door.gameObject.SetActive(false);
+        door.GetComponent<Door>().BreakAnimation();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         ScoreController.IncreaseScore();
         DeactivateDoor();
-        Debug.Log(ScoreController.GetScore());
+        //Debug.Log(ScoreController.GetScore());
     }
 
     public void MoveToPosition(Vector3 position)
