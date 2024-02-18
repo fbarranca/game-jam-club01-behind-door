@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public float totalTime = 60f;
+    public float totalTime = 120f;
     public UnityEvent onTimerEnd;
-    public Text timerText; // Reference to the UI Text component
+    public TextMeshProUGUI timerText;
 
     private Coroutine timerCoroutine;
 
@@ -60,7 +61,7 @@ public class Timer : MonoBehaviour
     {
         int minutes = Mathf.FloorToInt(currentTime / 60f);
         int seconds = Mathf.FloorToInt(currentTime % 60f);
-        string timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
+        string timerString = string.Format("{0}:{1:00}", minutes, seconds);
         timerText.text = timerString; // Update the Text component with the formatted time string
     }
 }

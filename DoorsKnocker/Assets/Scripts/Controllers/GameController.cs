@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public Door[] doors;
     public Transform startRoom;
     private bool roundCompleted = false;
+    public Timer timer;
 
     // Start is called before the first frame update
     void Start()
     {
-        doors = FindObjectsOfType<Door>();    
+        doors = FindObjectsOfType<Door>();
+        timer.onTimerEnd.AddListener(EndGame);
     }
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class GameController : MonoBehaviour
             StartNewRound();
         }
     }
+
     bool AllDoorsDeactivated()
     {
         foreach (Door door in doors) 
@@ -54,5 +58,10 @@ public class GameController : MonoBehaviour
             door.targetSpot.SetActive(true);
             door.MoveTargetSpotToRandomPosition();
         }
+    }
+
+    void EndGame()
+    {
+        SceneManager.LoadScene("EndGameScene");
     }
 }
