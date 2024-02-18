@@ -4,16 +4,19 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EndGameController : MonoBehaviour
+public class GameMenuController : MonoBehaviour
 {
     public TextMeshProUGUI resultText;
     void Start()
     {
-        resultText.text = $"Thank you for playing!\n" +
-            $"Score: {ScoreController.GetScore()}";
+        if (resultText != null)
+        {
+            resultText.text = $"Thank you for playing!\n" +
+                $"Score: {ScoreController.GetScore()}";
+        }
     }
 
-    public void RestartGame()
+    public void StartGame()
     {
         SceneManager.LoadScene("StageScene");
     }
