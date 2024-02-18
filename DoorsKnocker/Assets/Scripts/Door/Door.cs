@@ -34,19 +34,16 @@ public class Door : MonoBehaviour, IPointerClickHandler
         {
             GetHintAnimation(clickPosition);
             knock.SetTrigger(strongTrigger);
-            Debug.Log("You're very close to the target spot!");
         }
         else if (distance < 2.0f) // Adjust the threshold value as needed
         {
             GetHintAnimation(clickPosition);
             knock.SetTrigger(midTrigger);
-            Debug.Log("You're close to the target spot.");
         }
         else
         {
             GetHintAnimation(clickPosition);
             knock.SetTrigger(farTrigger);
-            Debug.Log("You're far from the target spot.");
         }
 
         if (eventData.pointerPress == targetSpot)

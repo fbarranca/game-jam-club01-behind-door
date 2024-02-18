@@ -24,14 +24,12 @@ public class GameController : MonoBehaviour
     {
         if (AllDoorsDeactivated() && !roundCompleted)
         {
-            Debug.Log("All doors deactivated! Round Complete!");
             roundCompleted = true;
         }
         else if (roundCompleted &&
         Vector2.Distance(Camera.main.transform.position, startRoom.transform.position) < 0.1f)
         {
             roundCompleted = false;
-            Debug.Log("Starting new round");
             StartNewRound();
         }
     }
