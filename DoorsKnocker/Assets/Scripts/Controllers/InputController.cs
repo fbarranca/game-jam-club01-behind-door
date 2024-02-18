@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     public static InputController instance; // Singleton instance
+    public CountdownTimer countdownTimer;
 
     void Awake()
     {
@@ -22,6 +23,9 @@ public class InputController : MonoBehaviour
 
     void Update()
     {
+
+        if(!countdownTimer.IsInputEnabled()) { return; }
+
         // Check for player input
         if (Input.GetAxisRaw("Horizontal") < 0 && !CameraController.instance.IsTransitioning)
         {

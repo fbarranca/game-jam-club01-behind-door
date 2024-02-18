@@ -13,12 +13,12 @@ public class Timer : MonoBehaviour
 
     private Coroutine timerCoroutine;
 
-    void Start()
-    {
-        StartTimer();
-    }
+    //void Start()
+    //{
+    //    StartTimer();
+    //}
 
-    void StartTimer()
+    public void StartTimer()
     {
         if (timerCoroutine != null)
         {
